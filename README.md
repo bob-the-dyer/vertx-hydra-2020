@@ -1,14 +1,36 @@
-# vert.x way of high-availability and fail-over: pros and cons
+# vert.x approach for high-availability and fail-over: pros and cons
 
 The goal is to show the way vert.x realized high-availability and fail-over and argue pros and cons.
-To build project use: `mvn clean package`
+To build project use: `./mvnw clean package`
 
 Verticals are deployed as fat jar inside Docker containers. 
-To run all containers at once use: `docker-compose up` 
+To run all containers at once use: `docker-compose -f docker-compose.yml up` 
  
 ## Plan
- -  TODO
- 
+ - Essential intro to vert.x: 
+   - reactive
+   - high-performant
+   - based on netty/nio
+   - non-blocking and async 
+   - actor model 
+   - polyglotic  
+ - vert.x fundamentals:
+   - verticals
+   - eventbus
+   - cluster
+ - vert.x approach to high-availability and fail-over
+   - enabling ha
+   - detection
+   - fail-over
+ - demo:
+   - take 1 - failure: failing over while code is not there
+   - take 2 - success: hanode approach
+   - take 3 - success: no hanode approach
+   - take 4 - failure: poisoning verticle  
+   - take 5 - success: poisoning verticle isolation in group
+   - take 6 - emulating split-brain with blockade without quorum: fail
+   - take 7 - emulating split-brain with blockade with quorum: success
+
 ## Negative things to mention
  - Hazelcast by default has timeouts and delays that should be configured for each particular case.    
  - Ports will not automatically be opened while migrating from container to container, i.e. migration of web is useless,
