@@ -10,9 +10,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>source</module>
+        <module>source-connector</module>
         <module>converter</module>
-        <module>destination</module>
+        <module>destination-connector</module>
     </modules>
 
 

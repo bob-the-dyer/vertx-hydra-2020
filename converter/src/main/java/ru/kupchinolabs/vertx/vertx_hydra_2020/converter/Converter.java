@@ -10,7 +10,7 @@ public class Converter extends AbstractVerticle {
     @Override
     public void start() {
         vertx.eventBus().consumer("source_topic", (Handler<Message<String>>) message -> convert(message.body()));
-        out.println("<--- SourceConnector ---> is now running");
+        out.println("<--- Converter ---> is now running");
     }
 
     private void convert(String body) {

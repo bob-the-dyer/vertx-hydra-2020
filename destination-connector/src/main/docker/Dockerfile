@@ -3,7 +3,7 @@ FROM openjdk:11-jre-slim
 ENV VERTICLE_FILE destination-connector-fat.jar
 
 # Set vertx option
-ENV VERTX_OPTIONS "-cluster"
+ENV VERTX_OPTIONS "-ha"
 
 # Set the location of the verticles
 ENV VERTICLE_HOME /usr/verticles

@@ -3,9 +3,8 @@
 The goal is to show the way vert.x realized high-availability and fail-over and argue pros and cons.
 To build project use: `mvn clean package`
 
-Verticals are deployed as a fat jar inside Docker containers. 
+Verticals are deployed as fat jar inside Docker containers. 
 To run all containers at once use: `docker-compose up` 
-To run hanode from maven: mvn package -P con,run -Dvertx.options="-ha" -Dstart.verticle="producer.groovy"
  
 ## Plan
  -  TODO

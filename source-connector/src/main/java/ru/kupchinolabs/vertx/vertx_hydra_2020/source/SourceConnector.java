@@ -10,7 +10,7 @@ public class SourceConnector extends AbstractVerticle {
 
     @Override
     public void start() {
-        vertx.setPeriodic(5000, c -> {
+        vertx.setPeriodic(2500, c -> {
             String message = "vert.x " + counter++;
             out.println("publishing '" + message + "'");
             vertx.eventBus().publish("source_topic", message);
