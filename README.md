@@ -1,6 +1,6 @@
 # vert.x approach for high-availability and fail-over: pros and cons
 
-The goal is to show the way vert.x realized high-availability and fail-over and argue pros and cons.
+The goal is to demonstrate the vert.x approach for building highly-available distributed systems with and fail-over and argue pros and cons.
 To build project use: `./mvnw clean package`
 
 Verticals are deployed as fat jar inside Docker containers. 
@@ -23,13 +23,13 @@ To run all containers at once use: `docker-compose -f docker-compose.yml up`
    - detection
    - fail-over
  - demo:
-   - take 1 - failure: failing over while code is not there
-   - take 2 - success: hanode approach
-   - take 3 - success: no hanode approach
-   - take 4 - failure: poisoning verticle  
-   - take 5 - success: poisoning verticle isolation in group
-   - take 6 - emulating split-brain with blockade without quorum: fail
-   - take 7 - emulating split-brain with blockade with quorum: success
+   - failure: failing over while code is not there
+   - success: hanode approach
+   - emulating split-brain with blockade without quorum: fail
+   - emulating split-brain with blockade with quorum: fail
+   - success: no hanode approach
+   - failure: poisoning verticle  
+   - success: poisoning verticle isolation in group
 
 ## Negative things to mention
  - Hazelcast by default has timeouts and delays that should be configured for each particular case.    
@@ -54,6 +54,19 @@ To run all containers at once use: `docker-compose -f docker-compose.yml up`
  - `docker-compose stop`
  - `docker-compose up`
  - `docker-compose scale producer=5`
+ - 'docker-compose logs -f'
     
 ## Hints for blockade interaction:
- - TODO
+ - `blockade up`
+ - `blockade destroy`
+ - `blockade status`
+ - `blockade slow n1`
+ - `blockade fast n1`
+ - `blockade flaky n1 n2`
+ - `blockade duplicate n1`
+ - `blockade partition n1,n2`
+ - `blockade partition n1,n2 n3,n4`
+ - `blockade join`
+ - [more details](https://github.com/worstcase/blockade#commands)
+ - [and more details](https://blockade.readthedocs.io/en/latest/)
+ 

@@ -15,7 +15,7 @@ public class Converter extends AbstractVerticle {
 
     private void convert(String body) {
         String converted = new StringBuilder(body).reverse().toString();
-        System.out.println("Converting '" + body + "' to '" + converted + "' and publishing");
+        System.out.println("Converting '" + body + "' to '" + converted + "'");
         vertx.eventBus().publish("destination_topic", converted);
     }
 
