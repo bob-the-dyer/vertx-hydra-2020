@@ -1,0 +1,8 @@
+version: '3'
+services:
+  source_node:
+    image: vertx_hydra_2020/source:0.1-SNAPSHOT
+  converter_node:
+    image: vertx_hydra_2020/converter:0.1-SNAPSHOT
+  destination_node:
+    image: vertx_hydra_2020/destination:0.1-SNAPSHOT
