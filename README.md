@@ -1,6 +1,6 @@
 # vert.x approach for high-availability and fail-over: pros and cons
 
-The goal is to demonstrate the vert.x approach for building highly-available distributed systems with and fail-over and argue pros and cons.
+The goal is to demonstrate vert.x approach for building highly-available distributed systems with fail-over and argue pros and cons.
 To build project use: `./mvnw clean package`
 
 Verticals are deployed as fat jar inside Docker containers. 
