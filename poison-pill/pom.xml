@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.kupchinolabs.vertx.vertx-hydra-2020</groupId>
-    <artifactId>hanode</artifactId>
+    <artifactId>poison-pill</artifactId>
     <version>0.1-SNAPSHOT</version>
 
     <properties>
@@ -21,8 +21,8 @@
 
         <vertx.version>3.9.0</vertx.version>
 
-        <main.verticle>ru.kupchinolabs.vertx.vertx_hydra_2020.hanode.Starter</main.verticle>
-        <docker.image>vertx_hydra_2020/hanode:${project.version}</docker.image>
+        <main.verticle>ru.kupchinolabs.vertx.vertx_hydra_2020.poison_pill.PoisonPill</main.verticle>
+        <docker.image>vertx_hydra_2020/poison:${project.version}</docker.image>
     </properties>
 
     <dependencyManagement>
@@ -45,26 +45,6 @@
         <dependency>
             <groupId>io.vertx</groupId>
             <artifactId>vertx-hazelcast</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>ru.kupchinolabs.vertx.vertx-hydra-2020</groupId>
-            <artifactId>source-connector</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.kupchinolabs.vertx.vertx-hydra-2020</groupId>
-            <artifactId>converter</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.kupchinolabs.vertx.vertx-hydra-2020</groupId>
-            <artifactId>destination-connector</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ru.kupchinolabs.vertx.vertx-hydra-2020</groupId>
-            <artifactId>poison-pill</artifactId>
-            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

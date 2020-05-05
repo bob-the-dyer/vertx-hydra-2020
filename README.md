@@ -13,6 +13,7 @@ To run all containers at once use: `docker-compose -f docker-compose.yml up`
    - based on netty/nio
    - non-blocking and async 
    - actor model 
+   - microservices
    - polyglotic  
  - vert.x fundamentals:
    - verticals
@@ -57,15 +58,16 @@ To run all containers at once use: `docker-compose -f docker-compose.yml up`
  - 'docker-compose logs -f'
     
 ## Hints for blockade interaction:
- - `blockade up`
+ - `blockade --config blockade-ha.yml up`
  - `blockade destroy`
  - `blockade status`
- - `blockade slow n1`
- - `blockade fast n1`
- - `blockade flaky n1 n2`
- - `blockade duplicate n1`
- - `blockade partition n1,n2`
- - `blockade partition n1,n2 n3,n4`
+ - `blockade slow con`
+ - `blockade fast con`
+ - `blockade flaky src con`
+ - `blockade duplicate src`
+ - `blockade partition dst`
+ - `blockade partition src,con con,dst`
+ - `blockade blockade random-partition`
  - `blockade join`
  - [more details](https://github.com/worstcase/blockade#commands)
  - [and more details](https://blockade.readthedocs.io/en/latest/)

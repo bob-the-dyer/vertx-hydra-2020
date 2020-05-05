@@ -4,24 +4,27 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Handler;
 import io.vertx.core.eventbus.Message;
 
-import static java.lang.System.out;
+import java.util.logging.Logger;
 
 public class Converter extends AbstractVerticle {
+
+    Logger logger = Logger.getLogger(Converter.class.getSimpleName());
+
     @Override
     public void start() {
         vertx.eventBus().consumer("source_topic", (Handler<Message<String>>) message -> convert(message.body()));
-        out.println("<--- Converter ---> is now running");
+        logger.info("<--- Converter ---> is now running");
     }
 
     private void convert(String body) {
         String converted = new StringBuilder(body).reverse().toString();
-        System.out.println("Converting '" + body + "' to '" + converted + "'");
+        logger.info("Converting '" + body + "' to '" + converted + "'");
         vertx.eventBus().publish("destination_topic", converted);
     }
 
     @Override
     public void stop() {
-        out.println("<--- Converter ---> is now stopped");
+        logger.info("<--- Converter ---> is now stopped");
     }
 
 }

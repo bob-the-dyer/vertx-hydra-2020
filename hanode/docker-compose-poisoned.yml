@@ -1,0 +1,18 @@
+version: '3'
+services:
+  source-hanode:
+    image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
+    environment:
+      VERTX_RUN_COMMAND: run ru.kupchinolabs.vertx.vertx_hydra_2020.source.SourceConnector -ha
+  converter-hanode:
+    image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
+    environment:
+      VERTX_RUN_COMMAND: run ru.kupchinolabs.vertx.vertx_hydra_2020.converter.Converter -ha
+  destination-hanode:
+    image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
+    environment:
+      VERTX_RUN_COMMAND: run ru.kupchinolabs.vertx.vertx_hydra_2020.destination.DestinationConnector -ha
+  poison-pill:
+    image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
+    environment:
+      VERTX_RUN_COMMAND: run ru.kupchinolabs.vertx.vertx_hydra_2020.poison_pill.PoisonPill -ha

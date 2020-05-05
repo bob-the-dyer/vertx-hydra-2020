@@ -13,6 +13,7 @@
         <module>source-connector</module>
         <module>converter</module>
         <module>destination-connector</module>
+        <module>poison-pill</module>
         <module>hanode</module>
     </modules>
 
