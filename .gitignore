@@ -1,5 +1,6 @@
 HELP.md
-/target/
+/target/*
+*/target/*
 /lkapp/
 !.mvn/wrapper/maven-wrapper.jar
 .ENV
@@ -12,6 +13,10 @@ HELP.md
 .settings
 .springBeans
 .sts4-cache
+
+### blockade output ###
+.blockade/*
+*/.blockade/*
 
 ### IntelliJ IDEA ###
 .idea

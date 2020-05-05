@@ -3,32 +3,43 @@
 The goal is to demonstrate vert.x approach for building distributed highly-available systems with automatic fail-over and argue pros and cons.
  
 ## Plan
+ - Self-Introduction
+ - Plan announcement & goals statement: 
+    - Intro to vert.x tool
+    - Focus on vert.x way to implement HA and fail-over 
+    - Several attempts to use vert.x HA and fail-over with obstacles and solutions 
+    - Arguing on pros and cons
+    - Recommendations
  - Essential intro to vert.x: 
-   - reactive
-   - high-performant, high-load oriented
-   - based on netty/NIO 
-   - non-blocking and async APIS 
-   - actor model
-   - microservices natively
-   - polyglotic: JVM 
-   - no JVM low-level concurrency   
+   - Reactive
+   - High-performant, high-load oriented
+   - Based on netty/NIO 
+   - Non-blocking and async APIs 
+   - Actor Model
+   - Microservices natively
+   - Polyglot-programming for JVM 
+   - No JVM low-level concurrency   
  - vert.x fundamentals:
-   - verticals => actors
-   - eventbus => messages exchange
-   - cluster
- - vert.x approach to high-availability and fail-over
-   - approach essentials, comparing to classical Actor Model   
-   - enabling ha
-   - fail detection
-   - fail-over
- - demo:
-   - failing-over while code is not there, problem
-   - hanode approach, solution
-   - hanode alternative approach - ???
-   - split-brain with blockade, problem
-   - split-brain with blockade with quorum, solution
-   - poison pill verticle, problem  
-   - poison pill isolation in hagroup, solution
+   - Verticals (actors)
+   - Eventbus (messages exchange)
+   - Cluster
+ - vert.x approach to high-availability (ha) and fail-over:
+   - Approach essentials: failure detection and fail-over mechanics
+   - Comparison to classical Actor Model supervision and [akka](https://doc.akka.io/docs/akka/2.5/general/supervision.html)   
+   - Enabling ha
+ - Main use case:
+   - source system -> source-connector -> converter -> destination-connector -> destination system
+   - Essential code base presentation (IDEA) 
+ - Demos (IDEA, terminals):   
+   1. obstacle 1: failing-over while verticle byte code is not in the place  
+   1. solution 1.1: hanode approach 
+   1. solution 1.2: custom classloader approach (???)
+   1. obstacle 2: split-brain with blockade 
+   1. solution 2: split-brain with blockade with quorum
+   1. obstacle 3: poison pill verticle   
+   1. solution 3 + solution 1.3: poison pill isolation in hagroup 
+ - Conclusions
+ - Q/A
    
 ## Build hints
 
