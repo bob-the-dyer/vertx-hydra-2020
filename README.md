@@ -1,42 +1,42 @@
 # vert.x approach for high-availability and fail-over: pros and cons
 
-The goal is to demonstrate vert.x approach for building highly-available distributed systems with fail-over and argue pros and cons.
-To build project use: `./mvnw clean package`
-
-Verticals are deployed as fat jar inside Docker containers. 
-To run all containers at once use: `docker-compose -f docker-compose.yml up` 
+The goal is to demonstrate vert.x approach for building distributed highly-available systems with automatic fail-over and argue pros and cons.
  
 ## Plan
  - Essential intro to vert.x: 
    - reactive
-   - high-performant
-   - based on netty/nio
-   - non-blocking and async 
-   - actor model 
-   - microservices
-   - polyglotic  
+   - high-performant, high-load oriented
+   - based on netty/NIO 
+   - non-blocking and async APIS 
+   - actor model
+   - microservices natively
+   - polyglotic: JVM 
+   - no JVM low-level concurrency   
  - vert.x fundamentals:
-   - verticals
-   - eventbus
+   - verticals => actors
+   - eventbus => messages exchange
    - cluster
  - vert.x approach to high-availability and fail-over
+   - approach essentials, comparing to classical Actor Model   
    - enabling ha
-   - detection
+   - fail detection
    - fail-over
  - demo:
-   - failure: failing over while code is not there
-   - success: hanode approach
-   - emulating split-brain with blockade without quorum: fail
-   - emulating split-brain with blockade with quorum: fail
-   - success: no hanode approach
-   - failure: poisoning verticle  
-   - success: poisoning verticle isolation in group
+   - failing-over while code is not there, problem
+   - hanode approach, solution
+   - hanode alternative approach - ???
+   - split-brain with blockade, problem
+   - split-brain with blockade with quorum, solution
+   - poison pill verticle, problem  
+   - poison pill isolation in hagroup, solution
+   
+## Build hints
 
-## Negative things to mention
- - Hazelcast by default has timeouts and delays that should be configured for each particular case.    
- - Ports will not automatically be opened while migrating from container to container, i.e. migration of web is useless,
- use super ha node with all ports needed
- - hanode - looks like quorum is set by default with -ha
+To build project use: `./mvnw clean package`
+
+Verticals are deployed as fat jar inside Docker containers.
+ 
+To run all containers at once use: `docker-compose -f docker-compose.yml up` 
  
 ## Hints for docker interaction:
  - To initialize docker environment run in terminal: `eval "$(docker-machine env default)`"
@@ -72,3 +72,8 @@ To run all containers at once use: `docker-compose -f docker-compose.yml up`
  - [more details](https://github.com/worstcase/blockade#commands)
  - [and more details](https://blockade.readthedocs.io/en/latest/)
  
+## Negative things to mention
+ - Hazelcast by default has timeouts and delays that should be configured for each particular case.    
+ - Ports will not automatically be opened while migrating from container to container, i.e. migration of web is useless,
+ use super ha node with all ports needed
+ - hanode - looks like quorum is set by default with -ha
