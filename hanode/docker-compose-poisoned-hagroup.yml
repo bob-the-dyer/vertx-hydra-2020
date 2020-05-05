@@ -1,25 +1,34 @@
-containers:
-  src:
+version: '3'
+services:
+  source-hanode:
     image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
     environment:
       VERTX_RUN_COMMAND: run ru.kupchinolabs.vertx.vertx_hydra_2020.source.SourceConnector -ha -hagroup src-group
-  src-backup:
+  source-hanode-bare:
     image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
     environment:
       VERTX_RUN_COMMAND: bare -hagroup src-group
-  con:
+  converter-hanode:
     image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
     environment:
       VERTX_RUN_COMMAND: run ru.kupchinolabs.vertx.vertx_hydra_2020.converter.Converter -ha -hagroup con-group
-  con-backup:
+  converter-hanode-bare:
     image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
     environment:
       VERTX_RUN_COMMAND: bare -hagroup con-group
-  dst:
+  destination-hanode:
     image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
     environment:
       VERTX_RUN_COMMAND: run ru.kupchinolabs.vertx.vertx_hydra_2020.destination.DestinationConnector -ha -hagroup dst-group
-  dst-backup:
+  destination-hanode-bare:
     image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
     environment:
       VERTX_RUN_COMMAND: bare -hagroup dst-group
+  poison-pill:
+    image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
+    environment:
+      VERTX_RUN_COMMAND: run ru.kupchinolabs.vertx.vertx_hydra_2020.poison_pill.PoisonPill -ha -hagroup psn-group
+  poison-pill-bare:
+    image: vertx_hydra_2020/hanode:0.1-SNAPSHOT
+    environment:
+      VERTX_RUN_COMMAND: bare -hagroup psn-group
