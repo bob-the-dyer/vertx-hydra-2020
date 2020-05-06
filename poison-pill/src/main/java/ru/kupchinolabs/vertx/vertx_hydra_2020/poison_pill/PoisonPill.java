@@ -1,25 +1,23 @@
 package ru.kupchinolabs.vertx.vertx_hydra_2020.poison_pill;
 
 import io.vertx.core.AbstractVerticle;
+import lombok.extern.slf4j.Slf4j;
 
-import java.util.logging.Logger;
-
+@Slf4j
 public class PoisonPill extends AbstractVerticle {
-
-    Logger logger = Logger.getLogger(PoisonPill.class.getSimpleName());
 
     @Override
     public void start() {
-        vertx.setTimer(5000, c -> {
-            logger.info("<<< *** POISON PILL IS NOW ACTIVATED *** >>>");
+        vertx.setTimer(10000, c -> {
+            log.info("<<< \u2620\u2620\u2620 POISON PILL IS NOW ACTIVATED \u2620\u2620\u2620 >>>");
             Runtime.getRuntime().halt(-42);
         });
-        logger.info("<--- PoisonPill ---> is now running");
+        log.info("<--- PoisonPill ---> is now running");
     }
 
     @Override
     public void stop() {
-        logger.info("<--- PoisonPill ---> is now stopped");
+        log.info("<--- PoisonPill ---> is now stopped");
     }
 
 }

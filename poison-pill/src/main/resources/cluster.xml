@@ -7,9 +7,9 @@
         <property name="hazelcast.memcache.enabled">false</property>
         <property name="hazelcast.rest.enabled">false</property>
         <property name="hazelcast.wait.seconds.before.join">0</property>
-        <property name="hazelcast.logging.type">jdk</property>
+        <property name="hazelcast.logging.type">slf4j</property>
 
-        <property name="hazelcast.max.no.heartbeat.seconds">5</property>
+        <property name="hazelcast.max.no.heartbeat.seconds">7</property>
         <property name="hazelcast.merge.first.run.delay.seconds">5</property>
         <property name="hazelcast.merge.next.run.delay.seconds">3</property>
         <property name="hazelcast.max.join.merge.target.seconds">5</property>

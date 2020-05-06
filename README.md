@@ -29,7 +29,7 @@ The goal is to demonstrate vert.x approach for building distributed highly-avail
    - Enabling ha
  - Main use case:
    - source system -> source-connector -> converter -> destination-connector -> destination system
-   - Essential code base presentation (IDEA) 
+   - Essential code base presentation and tools: IDEA, terminals, java, maven, docker, docker-compose, blockade 
  - Demos (IDEA, terminals):   
    1. obstacle 1: failing-over while verticle byte code is not in the place  
    1. solution 1.1: hanode approach 

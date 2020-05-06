@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="Console"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                [%d{HH:mm:ss.SSS}] [%level] [%15thread] [%20logger{0}] %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="ru.kupchinolabs.vertx.vertx-hydra-2020" level="INFO"/>
+    <logger name="io.vertx" level="INFO"/>
+    <logger name="io.netty" level="WARN"/>
+    <logger name="com.hazelcast" level="ERROR"/>
+    <logger name="com.hazelcast.internal.cluster.ClusterService" level="INFO"/>
+
+    <root level="info">
+        <appender-ref ref="Console"/>
+    </root>
+
+</configuration>
