@@ -47,7 +47,7 @@ The goal is to demonstrate vert.x approach to build distributed highly-available
  - Demos (IDEA, terminals):   
    1. obstacle 1: AFO while verticle byte code is not in the place  
    1. solution 1.1: _hanode_ approach 
-   1. solution 1.2: custom classloader approach (???)
+   1. solution 1.2: custom classloader approach
    1. obstacle 2: split-brain with _blockade_ 
    1. solution 2: split-brain with _blockade_ with quorum
    1. obstacle 3: _poison pill_

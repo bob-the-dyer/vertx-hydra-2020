@@ -4,6 +4,8 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Context;
 import io.vertx.core.Vertx;
 import lombok.extern.slf4j.Slf4j;
+import ru.kupchinolabs.vertx.vertx_hydra_2020.cluster_classloader.VertxClusterByteCodeStorage;
+import ru.kupchinolabs.vertx.vertx_hydra_2020.cluster_classloader.VertxDeploymentManagerHacker;
 
 @Slf4j
 public class SourceConnector extends AbstractVerticle {
@@ -14,6 +16,11 @@ public class SourceConnector extends AbstractVerticle {
     public void init(Vertx vertx, Context context) {
         super.init(vertx, context);
         log.info("init called");
+
+// TODO uncomment to enable cluster aware classloading
+//        VertxClusterByteCodeStorage.storeClass(vertx, this);
+//        VertxDeploymentManagerHacker.hack(vertx);
+
     }
 
     @Override

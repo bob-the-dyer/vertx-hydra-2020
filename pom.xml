@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>cluster-classloader</module>
         <module>source-connector</module>
         <module>converter</module>
         <module>destination-connector</module>
