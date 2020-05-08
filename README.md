@@ -1,6 +1,6 @@
-# vert.x approach for high-availability and fail-over: pros and cons
+# High-availability and automatic fail-over with vert.x: pros and cons
 
-The goal is to demonstrate vert.x approach for building distributed highly-available (HA) systems with automatic fail-over (AFO) and argue pros and cons.
+The goal is to demonstrate vert.x approach to build distributed highly-available (HA) systems with automatic fail-over (AFO) and argue pros and cons.
  
 ## Plan
  - Self-Introduction
