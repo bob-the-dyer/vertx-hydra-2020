@@ -1,10 +1,18 @@
 package ru.kupchinolabs.vertx.vertx_hydra_2020.poison_pill;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Context;
+import io.vertx.core.Vertx;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class PoisonPill extends AbstractVerticle {
+
+    @Override
+    public void init(Vertx vertx, Context context) {
+        super.init(vertx, context);
+        log.info("init called");
+    }
 
     @Override
     public void start() {

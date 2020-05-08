@@ -1,15 +1,15 @@
 # vert.x approach for high-availability and fail-over: pros and cons
 
-The goal is to demonstrate vert.x approach for building distributed highly-available systems with automatic fail-over and argue pros and cons.
+The goal is to demonstrate vert.x approach for building distributed highly-available (HA) systems with automatic fail-over (AFO) and argue pros and cons.
  
 ## Plan
  - Self-Introduction
  - Plan announcement & goals statement: 
     - Intro to vert.x tool
-    - Focus on vert.x way to implement HA and fail-over 
-    - Several attempts to use vert.x HA and fail-over with obstacles and solutions 
-    - Arguing on pros and cons
-    - Recommendations
+    - Focus on vert.x way to implement HA and AFO 
+    - Several attempts to use vert.x HA and AFO with obstacles and solutions 
+    - Arguing pros and cons
+    - Conclusions, recommendations
  - Essential intro to vert.x: 
    - Reactive
    - High-performant, high-load oriented
@@ -23,29 +23,43 @@ The goal is to demonstrate vert.x approach for building distributed highly-avail
    - Verticals (actors)
    - Eventbus (messages exchange)
    - Cluster
- - vert.x approach to high-availability (ha) and fail-over:
-   - Approach essentials: failure detection and fail-over mechanics
+ - vert.x approach to HA and AFO:
+   - Approach essentials: failure detection and AFO mechanics
    - Comparison to classical Actor Model supervision and [akka](https://doc.akka.io/docs/akka/2.5/general/supervision.html)   
-   - Enabling ha
+   - Enabling HA and AFO
  - Main use case:
-   - source system -> source-connector -> converter -> destination-connector -> destination system
-   - Essential code base presentation and tools: IDEA, terminals, java, maven, docker, docker-compose, blockade 
+   - Typical distributed system to have HA and AFO: 
+     - [source system] --> 
+     - [source-connector] --> 
+     - [converter] --> 
+     - [destination-connector] --> 
+     - [destination system]
+   - Essential code base presentation and tools to build the system: 
+     - IDEA 
+     - terminals 
+     - java
+     - vert.x
+     - hazelcast
+     - maven
+     - docker
+     - docker-compose
+     - blockade 
  - Demos (IDEA, terminals):   
-   1. obstacle 1: failing-over while verticle byte code is not in the place  
-   1. solution 1.1: hanode approach 
+   1. obstacle 1: AFO while verticle byte code is not in the place  
+   1. solution 1.1: _hanode_ approach 
    1. solution 1.2: custom classloader approach (???)
-   1. obstacle 2: split-brain with blockade 
-   1. solution 2: split-brain with blockade with quorum
-   1. obstacle 3: poison pill verticle   
-   1. solution 3 + solution 1.3: poison pill isolation in hagroup 
- - Conclusions
+   1. obstacle 2: split-brain with _blockade_ 
+   1. solution 2: split-brain with _blockade_ with quorum
+   1. obstacle 3: _poison pill_
+   1. solution 3: poison pill isolation in hagroup (+ solution 1.3) 
+ - Conclusions, recommendations
  - Q/A
    
 ## Build hints
 
 To build project use: `./mvnw clean package`
 
-Verticals are deployed as fat jar inside Docker containers.
+Each vertical is deployed as fat jar inside its own docker container. Then verticals join the cluster. 
  
 To run all containers at once use: `docker-compose -f docker-compose.yml up` 
  
@@ -66,7 +80,7 @@ To run all containers at once use: `docker-compose -f docker-compose.yml up`
  - `docker-compose stop`
  - `docker-compose up`
  - `docker-compose scale producer=5`
- - 'docker-compose logs -f'
+ - `docker-compose logs -f`
     
 ## Hints for blockade interaction:
  - `blockade --config blockade-ha.yml up`
@@ -87,4 +101,4 @@ To run all containers at once use: `docker-compose -f docker-compose.yml up`
  - Hazelcast by default has timeouts and delays that should be configured for each particular case.    
  - Ports will not automatically be opened while migrating from container to container, i.e. migration of web is useless,
  use super ha node with all ports needed
- - hanode - looks like quorum is set by default with -ha
+ - _hanode_ - looks like quorum is set by default with -ha
